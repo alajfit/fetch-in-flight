@@ -9,7 +9,8 @@
     "build:browser": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.min.js --target browser",
     "build:es": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.esm.js --target electron",
     "build:umd": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.umd.js --target node",
-    "build": "npm run build:browser && npm run build:es && npm run build:umd"
+    "build": "npm run build:browser && npm run build:es && npm run build:umd",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/alajfit/fetch-in-flight#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
+    "release-it": "^12.4.3",
     "typescript": "^3.7.3"
   }
 }
