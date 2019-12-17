@@ -20,7 +20,7 @@
     "fetch",
     "inflight"
   ],
-  "author": "Alan J. Fitzpatrick",
+  "author": "Alan J. Fitzpatrick  <alajfit@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alajfit/fetch-in-flight/issues"
