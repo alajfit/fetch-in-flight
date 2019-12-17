@@ -1,2 +1,7 @@
-# fetch-in-flight
-Prevent multiple fetch requests to the same resource
+# Fetch in Flight (Saving your users some flight time)
+
+## Install
+
+```
+npm install fetch-in-flight --save
+```

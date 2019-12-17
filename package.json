@@ -1,0 +1,32 @@
+{
+  "name": "fetch-in-flight",
+  "version": "1.0.0",
+  "description": "Prevent multiple fetch requests to the same resource",
+  "main": "dist/fetch-in-flight.umd.js",
+  "module": "dist/fetch-in-flight.esm.js",
+  "unpkg": "dist/fetch-in-flight.min.js",
+  "scripts": {
+    "build:browser": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.min.js --target browser",
+    "build:es": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.esm.js --target electron",
+    "build:umd": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.umd.js --target node",
+    "build": "npm run build:browser && npm run build:es && npm run build:umd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alajfit/fetch-in-flight.git"
+  },
+  "keywords": [
+    "fetch",
+    "inflight"
+  ],
+  "author": "Alan J. Fitzpatrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alajfit/fetch-in-flight/issues"
+  },
+  "homepage": "https://github.com/alajfit/fetch-in-flight#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.3"
+  }
+}
