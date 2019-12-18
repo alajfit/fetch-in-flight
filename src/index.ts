@@ -1,4 +1,4 @@
-class FIF {
+export default class FIF {
     private inflight = new Map()
 
     constructor() {}

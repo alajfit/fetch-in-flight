@@ -1,7 +1,19 @@
-test('Prevent Multiple Network Requests', () => {
-    expect(true).toBe(true)
-})
+import FIF from '../index';
 
-test('Resolve all callers with the returned data', () => {
-    expect(true).toBe(true)
+const fetcher = new FIF()
+
+describe('Fetch In Flight', () => {
+    let fetch
+
+    beforeEach(() => {
+        fetch = fetcher.fetch
+    })
+
+    test('Prevent Multiple Network Requests', () => {
+        expect(true).toBe(true)
+    })
+    
+    test('Resolve all callers with the returned data', () => {
+        expect(true).toBe(true)
+    })
 })
