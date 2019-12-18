@@ -10,7 +10,21 @@
     "build:es": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.esm.js --target electron",
     "build:umd": "parcel build src/index.ts --out-dir dist --out-file fetch-in-flight.umd.js --target node",
     "build": "npm run build:browser && npm run build:es && npm run build:umd",
-    "release": "release-it"
+    "release": "release-it",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/dist/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,12 +41,12 @@
   },
   "homepage": "https://github.com/alajfit/fetch-in-flight#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.24",
     "jest": "^24.9.0",
     "parcel-bundler": "^1.12.4",
     "release-it": "^12.4.3",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },
-  "dependencies": {
-    "@types/jest": "^24.0.23"
-  }
+  "dependencies": {}
 }
