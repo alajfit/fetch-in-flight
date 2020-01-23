@@ -1,9 +1,11 @@
 export default class FIF {
   private flights = new Map();
   private CACHE_TIME = 0;
-  private CACHE_FETCH = window.fetch;
+  private CACHE_FETCH;
 
-  constructor() {}
+  constructor(fetch) {
+    this.CACHE_FETCH = fetch ? fetch : window.fetch;
+  }
 
   private hashCode(code: string): string {
     return Array.from(code)
