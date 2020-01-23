@@ -1,18 +1,27 @@
 import FIF from "../index";
-import fetch from "node-fetch";
+import { FetchMock } from "jest-fetch-mock";
+const fetchMock = fetch as FetchMock;
 
 const fetcher = new FIF(fetch);
 
 describe("Fetch In Flight", () => {
-  let fetchIt;
+  const fetchIt = fetcher.fetch;
 
   beforeEach(() => {
-    fetchIt = fetcher.fetch;
+    fetchMock.resetMocks();
   });
 
   test("Prevent Multiple Network Requests", () => {
-    fetchIt("");
-    expect(true).toBe(true);
+    fetchMock.mockResponse(
+      () =>
+        new Promise(resolve => setTimeout(() => resolve({ body: "ok" }), 1000))
+    );
+
+    fetchIt("http://www.google.com");
+    fetchIt("http://www.google.com");
+    fetchIt("http://www.google.com");
+
+    expect(fetchMock.mock.calls.length).toEqual(1);
   });
 
   test("Resolve all callers with the returned data", () => {
