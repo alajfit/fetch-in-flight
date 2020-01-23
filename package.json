@@ -15,6 +15,10 @@
     "test": "jest --coverage"
   },
   "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./test/setupJest.js"
+    ],
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
