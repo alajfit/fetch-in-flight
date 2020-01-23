@@ -3,8 +3,9 @@ export default class FIF {
   private CACHE_TIME = 0;
   private CACHE_FETCH;
 
-  constructor(fetch) {
+  constructor(fetch, cacheTime = 0) {
     this.CACHE_FETCH = fetch ? fetch : window.fetch;
+    this.CACHE_TIME = cacheTime;
   }
 
   private hashCode(code: string): string {
