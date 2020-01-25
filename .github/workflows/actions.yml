@@ -1,0 +1,25 @@
+name: 'Fetch In Flight - Release'
+
+on: push
+
+jobs:
+    bot:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: 'Install Node'
+              uses: actions/setup-node@v1
+            - name: 'Install NPM Dependencies'
+              run: npm install
+            - name: 'Test ➔ Lint'
+              run: npm run lint
+            - name: 'Test ➔ Unit'
+              run: npm install -g codecov
+              run: npm run test
+              run: codecov
+            - name: 'Test ➔ Build'
+              run: npm run build
+            - name: 'Release'
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}N" > .npmrc
+              run: npm run release 
+
