@@ -11,8 +11,6 @@ jobs:
               uses: actions/setup-node@v1
             - name: 'Install NPM Dependencies'
               run: npm install
-            - name: 'Test ➔ Lint'
-              run: npm run lint
             - name: 'Test ➔ Unit'
               run: npm install -g codecov && npm run test && codecov
             - name: 'Test ➔ Build'
