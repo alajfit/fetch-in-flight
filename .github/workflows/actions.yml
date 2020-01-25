@@ -14,12 +14,9 @@ jobs:
             - name: 'Test ➔ Lint'
               run: npm run lint
             - name: 'Test ➔ Unit'
-              run: npm install -g codecov
-              run: npm run test
-              run: codecov
+              run: npm install -g codecov && npm run test && codecov
             - name: 'Test ➔ Build'
               run: npm run build
             - name: 'Release'
-              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}N" > .npmrc
-              run: npm run release 
+              run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}N" > .npmrc && npm run release
 
