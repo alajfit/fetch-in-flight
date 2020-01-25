@@ -1,6 +1,6 @@
 {
   "name": "fetch-in-flight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prevent multiple fetch requests to the same resource",
   "main": "dist/fetch-in-flight.umd.js",
   "module": "dist/fetch-in-flight.esm.js",
